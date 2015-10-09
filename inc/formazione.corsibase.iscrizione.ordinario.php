@@ -17,9 +17,10 @@ a cercare per vedere se ci sono corsi base
 e faccio un po' di merda visto che copernico non c'è */
 
 $comitato = $u->unComitato(MEMBRO_ORDINARIO);
-if (!$comitato) {
+if (!$comitato)
     $comitato = $u->unComitato(MEMBRO_EXORDINARIO);
-}
+if (!$comitato)
+    $comitato = $u->unComitato(MEMBRO_CORSO_BASE);
 
 
 $start = $comitato->superiore();
