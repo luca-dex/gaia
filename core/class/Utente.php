@@ -2297,6 +2297,10 @@ class Utente extends Persona {
         return SOCI_ORDINARI;
     }
 
+    /**
+     * Verifica l'utente è iscritto ad un corso base in questo momento
+     * @return bool
+     */
     public function iscrittoABase() {
         return (bool) $this->partecipazioniBase(ISCR_CONFERMATA);
     }
