@@ -214,7 +214,7 @@ class Utente extends Persona {
                 $riammissibile = $this->riammissibile();
             } else {
                 // sto lavorando su un ordinario non dimesso e verifico situazione cbase
-                $comitato = $this->unComitato(MEMBRO_ORDINARIO);
+                $comitato = $this->unComitato(MEMBRO_CORSO_BASE);
                 $iscrittoBase = (bool) $this->partecipazioniBase(ISCR_CONFERMATA);
             }
         }
