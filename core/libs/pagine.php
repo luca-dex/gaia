@@ -166,10 +166,11 @@ function paginaPresidenziale( $comitato = null, $attivita = null) {
 function menuVolontario() {
     global $me;
     $iscritto = (bool) $me->partecipazioniBase(ISCR_CONFERMATA);
+    $bocciato = (bool) $me->partecipazioniBase(ISCR_BOCCIATO);
     if ( $me && $me->stato == ASPIRANTE && !$iscritto) {
         menuAspirante();
         return;
-    }elseif($me && ($me->ordinario() || $me->ordinariodimesso())){
+    }elseif($me && ($me->ordinario() || $me->ordinariodimesso() || $bocciato)){
         menuOrdinario();
         return;
     }
