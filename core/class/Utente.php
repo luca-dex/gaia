@@ -1481,7 +1481,7 @@ class Utente extends Persona {
                 $c = $this->ultimaAppartenenza($d)->comitato();
             } else {
                 // altrimenti se un ordinario
-                $c = $this->unComitato(MEMBRO_ORDINARIO);
+                $c = $this->unComitato(SOGLIA_SICUREZZA);
             }
         } else {
             // altrimenti hai stato VOLONTARIO e devo capire se sei pendente o no
