@@ -116,6 +116,7 @@ $conf['membro'] = [
     MEMBRO_ORDINARIO_DIMESSO    =>  'Membro Ordinario Dimesso',
     MEMBRO_EST_ANN              =>  'Richiesta estensione annullata',
     MEMBRO_EST_NEGATA           =>  'Estensione negata',
+    MEMBRO_CORSO_BASE           =>  'Iscritto per Corso Base',
     MEMBRO_ORDINARIO            =>  'Sostenitore CRI',
     MEMBRO_EXORDINARIO          =>  'Ex-Socio Ordinario',
     MEMBRO_TRASF_IN_CORSO       =>  'Trasferimento in corso',
