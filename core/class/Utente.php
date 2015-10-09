@@ -1192,7 +1192,7 @@ class Utente extends Persona {
 
     /**
      * Restituisce l'elenco dei corsi base a cui ho richiesto partecipazione
-     * @return PartecipazioneBase elenco dei corsi a cui mi sono rpeiscritto o iscritto 
+     * @return PartecipazioneBase elenco dei corsi a cui mi sono preiscritto o iscritto 
      */
     public function corsiBase() {
         return PartecipazioneBase::filtra([
@@ -2295,6 +2295,10 @@ class Utente extends Persona {
             return EX_SOCI_ORDINARI;
         }
         return SOCI_ORDINARI;
+    }
+
+    public function iscrittoABase() {
+        return (bool) $this->partecipazioniBase(ISCR_CONFERMATA);
     }
 
 }

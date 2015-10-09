@@ -12,7 +12,11 @@ caricaSelettoreComitato();
 
 <div class="row-fluid">
   <div class="span3">
-    <?php        menuVolontario(); ?>
+        <?php  if ($me->iscrittoABase()) {
+            menuOrdinario();
+          } else {
+            menuVolontario();
+          } ?>
   </div>
   <div class="span9">
     <h2><i class="icon-puzzle-piece"></i> Statistiche Volontari</h2>

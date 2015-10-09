@@ -13,10 +13,16 @@ if(isset($_GET['tessok']) || isset($_GET['tesserr'])) {
 }
 
 
+
+
 ?>
 <div class="row-fluid">
     <div class="span3">
-        <?php        menuVolontario(); ?>
+        <?php  if ($me->iscrittoABase()) {
+            menuOrdinario();
+          } else {
+            menuVolontario();
+          } ?>
     </div>
     <div class="span6">
         <h2><i class="icon-edit muted"></i> Anagrafica</h3>

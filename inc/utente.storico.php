@@ -8,7 +8,11 @@ paginaPrivata();
 ?>
 <div class="row-fluid">
     <div class="span3">
-        <?php menuVolontario(); ?>
+        <?php  if ($me->iscrittoABase()) {
+            menuOrdinario();
+          } else {
+            menuVolontario();
+          } ?>
     </div>
     <div class="span9">
         <?php if ( isset($_GET['ester']) ) { ?>

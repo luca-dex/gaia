@@ -16,7 +16,7 @@ $menu += [
 ];
 
 $menu += [ 
-    'Socio'    =>  [
+    'Gestione'    =>  [
         'utente.anagrafica' =>  '<i class="icon-edit"></i> Anagrafica',
         'utente.storico'    =>  '<i class="icon-time"></i> Storico',
         'utente.posta'     =>   '<i class="icon-envelope-alt"></i> Posta'      
