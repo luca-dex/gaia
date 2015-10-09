@@ -105,7 +105,6 @@ class Comitato extends GeoPolitica {
                 appartenenza.comitato = :comitato
             AND 
                 (   appartenenza.stato <= :passati OR 
-                    appartenenza.stato = :ordinario OR
                     appartenenza.stato = :volontario)
 
             ORDER BY
@@ -114,7 +113,7 @@ class Comitato extends GeoPolitica {
         $q->bindParam(':data', $data, PDO::PARAM_INT);
         $q->bindParam(':comitato', $this->id);
         $q->bindValue(':passati',    MEMBRO_ORDINARIO_DIMESSO);
-        $q->bindValue(':ordinario',  MEMBRO_ORDINARIO);
+        //$q->bindValue(':ordinario',  MEMBRO_ORDINARIO);
         $q->bindValue(':volontario', MEMBRO_VOLONTARIO);
         $q->execute();
         $r = [];
