@@ -214,7 +214,7 @@ class Utente extends Persona {
                 $riammissibile = $this->riammissibile();
             } else {
                 // sto lavorando su un ordinario non dimesso e verifico situazione cbase
-                $comitato = $this->unComitato(MEMBRO_ORDINARIO);
+                $comitato = $this->unComitato(MEMBRO_CORSO_BASE);
                 $iscrittoBase = (bool) $this->partecipazioniBase(ISCR_CONFERMATA);
             }
         }
@@ -1481,7 +1481,7 @@ class Utente extends Persona {
                 $c = $this->ultimaAppartenenza($d)->comitato();
             } else {
                 // altrimenti se un ordinario
-                $c = $this->unComitato(MEMBRO_ORDINARIO);
+                $c = $this->unComitato(SOGLIA_SICUREZZA);
             }
         } else {
             // altrimenti hai stato VOLONTARIO e devo capire se sei pendente o no
