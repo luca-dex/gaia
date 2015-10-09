@@ -39,6 +39,8 @@ $t = Utente::by('id',$f);
         <?php }elseif (isset($_GET['zeroturniunit'])) { ?><form class="form-horizontal" action="?p=utente.mail.nuova.ok&zeroturniunit&id=<?php echo $_GET['id']; ?>&time=<?php echo $_GET['time']; ?>" method="POST">
         <?php }elseif (isset($_GET['ordinariunit'])) { ?><form class="form-horizontal" action="?p=utente.mail.nuova.ok&ordinariunit&id=<?php echo $f; ?>" method="POST">
         <?php }elseif (isset($_GET['ordinaricom'])) { ?><form class="form-horizontal" action="?p=utente.mail.nuova.ok&ordinaricom" method="POST">
+        <?php }elseif (isset($_GET['sostenitori'])) { ?><form class="form-horizontal" action="?p=utente.mail.nuova.ok&sostenitori" method="POST">
+        <?php }elseif (isset($_GET['iscritti'])) { ?><form class="form-horizontal" action="?p=utente.mail.nuova.ok&iscritti" method="POST">
         <?php }elseif (isset($_GET['ordinaridimessiunit'])) { ?><form class="form-horizontal" action="?p=utente.mail.nuova.ok&ordinaridimessiunit&id=<?php echo $f; ?>" method="POST">
         <?php }elseif (isset($_GET['ordinaridimessicom'])) { ?><form class="form-horizontal" action="?p=utente.mail.nuova.ok&ordinaridimessicom" method="POST">
         <?php }else{ ?> <form class="form-horizontal" action="?p=utente.mail.nuova.ok" method="POST"><?php } ?>
@@ -64,6 +66,8 @@ $t = Utente::by('id',$f);
             || isset($_GET['zeroturnicom']) 
             || isset($_GET['zeroturniunit'])
             || isset($_GET['ordinaricom'])) { 
+            || isset($_GET['sostenitori'])) { 
+            || isset($_GET['iscritti'])) { 
             ?>
             <div class="control-group">
               <label class="control-label" for="inputV">Destinatari</label>

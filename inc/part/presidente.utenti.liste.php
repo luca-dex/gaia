@@ -62,6 +62,10 @@
             <i class="icon-list"></i>
             Elenco Sostenitori CRI
         </a><br/>
+        <a href="?p=presidente.iscritti">
+            <i class="icon-list"></i>
+            Elenco Iscritti per Corso Base
+        </a><br/>
 
 
     </div>     

@@ -604,6 +604,56 @@ foreach ( $me->comitatiApp ([ APP_SOCI, APP_PRESIDENTE , APP_CO , APP_OBIETTIVO 
 
         }
         $excel->genera("Elenco " . $me->nomeExOrdinari() . " {$c->nome}.xls");
+    }elseif(isset($_GET['sostenitori'])){
+        foreach ( $c->membriSostenitori() as $v ) {
+            $i++;    
+            $excel->aggiungiRiga([
+                $i,
+                $v->nome,
+                $v->cognome,
+                date('d/m/Y', $v->dataNascita),
+                $v->comuneNascita,
+                $v->provinciaNascita,
+                $v->codiceFiscale,
+                $v->indirizzo,
+                $v->civico,
+                $v->comuneResidenza,
+                $v->CAPResidenza,
+                $v->provinciaResidenza,
+                $v->email,
+                $v->emailServizio,
+                $v->cellulare,
+                $v->cellulareServizio,
+                ( $_di = $v->ingresso() ) ? $_di->format('d/m/Y') : $nessuna_data
+                ]);
+
+        }
+        $excel->genera("Elenco Sostenitori CRI {$c->nome}.xls");
+    }elseif(isset($_GET['iscritti'])){
+        foreach ( $c->membriIscritti() as $v ) {
+            $i++;    
+            $excel->aggiungiRiga([
+                $i,
+                $v->nome,
+                $v->cognome,
+                date('d/m/Y', $v->dataNascita),
+                $v->comuneNascita,
+                $v->provinciaNascita,
+                $v->codiceFiscale,
+                $v->indirizzo,
+                $v->civico,
+                $v->comuneResidenza,
+                $v->CAPResidenza,
+                $v->provinciaResidenza,
+                $v->email,
+                $v->emailServizio,
+                $v->cellulare,
+                $v->cellulareServizio,
+                ( $_di = $v->ingresso() ) ? $_di->format('d/m/Y') : $nessuna_data
+                ]);
+
+        }
+        $excel->genera("Elenco Iscritti per Corso Base {$c->nome}.xls");
     }elseif(isset($_GET['ordinaridimessi'])){
         foreach ( $c->membriOrdinariDimessi() as $v ) {
             $i++;    
@@ -738,6 +788,10 @@ if(isset($_GET['dimessi'])){
  $zip->comprimi("Elenco soci.zip"); 
 }elseif(isset($_GET['ordinari'])){
  $zip->comprimi("Elenco " . $me->nomeExOrdinari() . ".zip"); 
+}elseif(isset($_GET['sostenitori'])){
+ $zip->comprimi("Elenco Sostenitori CRI.zip"); 
+}elseif(isset($_GET['iscritti'])){
+ $zip->comprimi("Elenco Iscritti per Corso Base.zip"); 
 }elseif(isset($_GET['ordinaridimessi'])){
  $zip->comprimi("Elenco soci ordinari dimessi.zip"); 
 }elseif(isset($_GET['cm'])){

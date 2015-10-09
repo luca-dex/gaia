@@ -316,7 +316,63 @@ class Comitato extends GeoPolitica {
                 cognome ASC, nome ASC");
         $q->bindValue(':ora', time());
         $q->bindParam(':comitato', $this->id);
+        $q->bindValue(':stato', MEMBRO_EXORDINARIO);
+
+        $q->execute();
+        $r = [];
+        while ( $k = $q->fetch(PDO::FETCH_NUM) ) {
+            $r[] = Volontario::id($k[0]);
+        }
+        return $r;
+    }
+
+    public function membriSostenitori() {
+        $q = $this->db->prepare("
+            SELECT
+                anagrafica.id
+            FROM
+                appartenenza, anagrafica
+            WHERE
+                anagrafica.id = appartenenza.volontario
+            AND
+                comitato = :comitato
+            AND
+                appartenenza.stato = :stato
+            AND
+                ( appartenenza.fine >= :ora OR appartenenza.fine IS NULL OR appartenenza.fine = 0 ) 
+            ORDER BY
+                cognome ASC, nome ASC");
+        $q->bindValue(':ora', time());
+        $q->bindParam(':comitato', $this->id);
         $q->bindValue(':stato', MEMBRO_ORDINARIO);
+
+        $q->execute();
+        $r = [];
+        while ( $k = $q->fetch(PDO::FETCH_NUM) ) {
+            $r[] = Volontario::id($k[0]);
+        }
+        return $r;
+    }
+
+    public function membriIscritti() {
+        $q = $this->db->prepare("
+            SELECT
+                anagrafica.id
+            FROM
+                appartenenza, anagrafica
+            WHERE
+                anagrafica.id = appartenenza.volontario
+            AND
+                comitato = :comitato
+            AND
+                appartenenza.stato = :stato
+            AND
+                ( appartenenza.fine >= :ora OR appartenenza.fine IS NULL OR appartenenza.fine = 0 ) 
+            ORDER BY
+                cognome ASC, nome ASC");
+        $q->bindValue(':ora', time());
+        $q->bindParam(':comitato', $this->id);
+        $q->bindValue(':stato', MEMBRO_CORSO_BASE);
 
         $q->execute();
         $r = [];
