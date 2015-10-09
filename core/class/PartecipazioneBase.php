@@ -65,11 +65,39 @@ class PartecipazioneBase extends Entita {
                 $q->appartenenza    = $a;
                 $q->timestamp       = time();
                 $q->tConferma       = time();
-                $q->pConferma       = $operatore
+                $q->pConferma       = $operatore;
                 $q->anno            = date('Y');
                 $q->assegnaProgressivo();
                 $q->quota           = $quota;
-                $q->causale         = "Iscrizione Corso Base per volontari"; 
+                $q->causale         = "Iscrizione Corso Base per volontari";
+
+                // generazione pdf
+                $l = new PDF('ricevutaquota', 'ricevuta.pdf');
+                $l->_COMITATO   = $a->comitato()->locale()->nomeCompleto();
+                $l->_ID         = $q->progressivo();
+                $l->_NOME       = $this->volontario()->nome;
+                $l->_COGNOME    = $this->volontario()->cognome;
+                $l->_FISCALE    = $this->volontario()->codiceFiscale;
+                $l->_NASCITA    = date('d/m/Y', $this->volontario()->dataNascita);
+                $l->_LUOGO      = $this->volontario()->luogoNascita;
+                $l->_IMPORTO    = soldi($q->quota);
+                $l->_QUOTA      = $q->causale;
+                $l->_OFFERTA    = '';
+                $l->_OFFERIMPORTO = '';
+                $l->_TOTALE     = soldi($quota->quota);
+                $l->_LUOGO      = $a->comitato()->locale()->comune;
+                $l->_DATA       = $q->dataPagamento()->format('d/m/Y');
+                $l->_CHINOME    = $operatore->nomeCompleto();
+                $l->_CHICF      = $operatore->codiceFiscale;
+                $f = $l->salvaFile($q->comitato());
+
+                // invio email
+                $m = new Email('corsoBaseQuota', "Pagata quota iscrizione al Corso Base" );
+                $m->a               = $this->volontario();
+                $m->da              = $operatore();
+                $m->_NOME           = $this->volontario()->nome;
+                $m->allega($f);
+                $m->invia();
             }
 
 
