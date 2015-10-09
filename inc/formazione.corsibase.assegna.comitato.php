@@ -4,7 +4,7 @@
 * ©2014 Croce Rossa Italiana
 */
 
-controllaParametri(array('id', 'asp'), 'formazione.corsibase');
+controllaParametri(array('id', 'asp', ''), 'formazione.corsibase');
 paginaPrivata();
 paginaModale();
 

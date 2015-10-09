@@ -119,4 +119,4 @@ $m->_NOME       = $p->nome;
 $m->_PASSWORD   = $password;
 $m->invia();
 
-redirect('presidente.utente.visualizza&ok&id='.$p->id);
+redirect('presidente.iscritti&caricato');

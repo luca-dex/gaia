@@ -63,6 +63,9 @@ if(!$corsi) {
                 <option value="<?php echo $corso->id; ?>"><?= $corso->progressivo() ?> - <?php echo $corso->nome(); ?></option>
                 <?php } ?>
             </select>
+            <p>Inserisci l'importo pagato da <?= $u->nomeCompleto(); ?> per l'iscrizione in euro
+                <input class="input-mini" id='quota' name='quota' type='number' step='0.01' min='0'>
+            </p>
             <p class="muted">Attenzione! Ciò che scegli non sarà facilmente modificabile in seguito.</p>
         </div>
         <div class="modal-footer">

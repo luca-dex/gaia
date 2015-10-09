@@ -28,10 +28,15 @@ $admin = (bool) $me->admin();
         <h4><i class="icon-exclamation-sign"></i> Iscritto dimesso</h4>
         <p>L'Iscritto è stato dimesso con successo.</p>
     </div>
+<?php }elseif ( isset($_GET['caricato']) )  { ?>
+    <div class="alert alert-block alert-success">
+        <h4><i class="icon-exclamation-sign"></i> Anagrafica caricata</h4>
+        <p>Ora puoi iscrivere la persona al Corso Base per Volontari CRI.</p>
+    </div>
 <?php }elseif ( isset($_GET['iscritto']) )  { ?>
     <div class="alert alert-block alert-success">
-        <h4><i class="icon-exclamation-sign"></i> Iscritto iscritto al corso base</h4>
-        <p>L'Iscritto è iscritto con successo al corso base.</p>
+        <h4><i class="icon-exclamation-sign"></i> Aspirante Volontario preiscritto al corso base</h4>
+        <p>L'Aspirante Volontario è preiscritto con successo al corso base.</p>
     </div>
 <?php }elseif ( isset($_GET['err']) )  { ?>
     <div class="alert alert-block alert-error">

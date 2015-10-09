@@ -69,7 +69,7 @@ class PartecipazioneBase extends Entita {
                 $q->anno            = date('Y');
                 $q->assegnaProgressivo();
                 $q->quota           = $quota;
-                $q->causale         = "Iscrizione corso di formazione per Volontari della Croce Rossa Italiana";
+                $q->causale         = "Iscrizione corso di formazione per Volontari della Croce Rossa Italiana. Codice corso: " . $this->corsoBase()->progressivo();
 
                 // generazione pdf
                 $l = new PDF('ricevutaquota', 'ricevuta.pdf');
