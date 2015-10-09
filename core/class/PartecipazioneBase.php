@@ -39,7 +39,7 @@ class PartecipazioneBase extends Entita {
         return false;
     }
 
-    public function concedi($com = null, $operatore=null) {
+    public function concedi($com = null, $operatore=null, $quota=0.0) {
         if(!$operatore) {
             global $sessione;
             $operatore = $sessione->utente();
@@ -47,16 +47,32 @@ class PartecipazioneBase extends Entita {
         $u = $this->utente();
         if($this->aggiorna(ISCR_CONFERMATA, $operatore)) {
 
-            if($com && !$u->appartenenzaAttuale(MEMBRO_ORDINARIO)){
+            if($com && !$u->appartenenzaAttuale(MEMBRO_CORSO_BASE)){
                 $a = new Appartenenza();
                 $a->volontario  = $this->volontario;
                 $a->comitato    = $com;
                 $a->inizio      = time();
                 $a->fine        = PROSSIMA_SCADENZA;
                 $a->timestamp   = time();
-                $a->stato       = MEMBRO_ORDINARIO;
+                $a->stato       = MEMBRO_CORSO_BASE;
                 $a->conferma    = $operatore;
             }
+
+            /* generazione della quota*/
+            if($quota > 0) {
+                $a = $u->appartenenzaAttuale(MEMBRO_CORSO_BASE);
+                $q = new Quota();
+                $q->appartenenza    = $a;
+                $q->timestamp       = time();
+                $q->tConferma       = time();
+                $q->pConferma       = $operatore
+                $q->anno            = date('Y');
+                $q->assegnaProgressivo();
+                $q->quota           = $quota;
+                $q->causale         = "Iscrizione Corso Base per volontari"; 
+            }
+
+
             return true;
         }
         return false;

@@ -5,6 +5,7 @@ $(document).ready( function() {
            var a2 = $(e).data('accetta');
            var motivo = '';
            var com = '';
+           var quota = '';
            if ( a2 == 0 ) {
               motivo = prompt("Motiva la negazione dell'iscrizione la corso");
               if ( motivo.length < 3 ) {
@@ -14,12 +15,14 @@ $(document).ready( function() {
               $(e).parents('tr').addClass('warning');
            } else {
               com = $("#com").val();
+              quota = $("#quota").val();
            }
            api('corsobase:accetta', {
                id:      a1,
                iscr:    a2,
                motivo:  motivo,
-               com:     com
+               com:     com,
+               quota:   quota
            }, function(x) {
               if (a2 == 0) {
                 $(e).parents('tr').hide(500);

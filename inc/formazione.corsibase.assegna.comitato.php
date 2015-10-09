@@ -25,31 +25,35 @@ $comitati = new RamoGeoPolitico($comitato, ESPLORA_SOLO_FOGLIE, EST_UNITA);
 <script type="text/javascript"><?php require './assets/js/formazione.corsibase.scheda.js'; ?></script>
 <div class="modal fade automodal">
     <div class="modal-header">
-        <h3><i class="icon-group muted"></i> Stai iscrivendo <?= $u->nome; ?> come Socio Ordinario</h3>
+        <h3><i class="icon-group muted"></i> Stai iscrivendo <?= $u->nome; ?> ad un Corso Base</h3>
     </div>
     <div class="modal-body">
-        <p>Accettare una preiscrizione significa iscrivere nel ruolo di <strong>Socio Ordinario</strong> una persona
-        che ne ha fatto richiesta. Per favore conferma che l'aspirante Volontario sia in regola
-        con quanto segue:</p>
+        <p>Accettare una preiscrizione significa iscrivere ad un corso base per Volontari una persona
+        che ne ha fatto richiesta. Per favore conferma quanto segue:</p>
         <ul>
-            <li> <input type="checkbox"  name="condizioni" value="1"> <?= $u->nomeCompleto(); ?> ha chiesto di diventare
-            Socio Ordinario della Croce Rossa Italiana </li>
+            <li> <input type="checkbox"  name="condizioni" value="1"> <?= $u->nomeCompleto(); ?> ha chiesto essere iscritto
+            al Corso Base per Volontari della Croce Rossa Italiana </li>
             <li> <input type="checkbox"  name="condizioni" value="2"> <?= $u->nomeCompleto(); ?> ha preso visione dello
             Statuto della Croce Rossa Italiana </li>
             <li> <input type="checkbox"  name="condizioni" value="3"> <?= $u->nomeCompleto(); ?> ha preso visione del
             Codice di Condotta per il personale della Croce Rossa Italiana </li>
             <li> <input type="checkbox"  name="condizioni" value="4"> <?= $u->nomeCompleto(); ?> è in regola con quanto
-            previsto dal regolamento per l'accesso al ruolo di Socio Ordinario della Croce Rossa Italiana </li>
+            previsto dal regolamento per poter accedere al ruolo di Socio CRI una volta superato
+            il Corso Base</li>
         </ul>
         <div class="nascosto" id="altreInfo">
-        <p>Seleziona ora l'unità CRI dove <?= $u->nomeCompleto(); ?> sarà iscritto come Socio Ordinario.</p>
-        <p>Questa operazione è fondamentale perchè da questo punto in poi la persona diventerà un
-            socio CRI a tutti gli effetti e potrà essere registrato il pagamento della quota.</p>
+        <p>Seleziona ora l'unità CRI dove <?= $u->nomeCompleto(); ?> sarà iscritto, una volta terminato il Corso Base,
+        come socio.</p>
+        <p>Questa operazione è fondamentale perchè dal momento in cui verrà superato l'esame la persona diventerà un
+            Socio CRI a tutti gli effetti.</p>
         <select id="com" name="com" class="input-xxlarge">
             <?php foreach ( $comitati as $com ) { ?>
             <option value="<?php echo $com->id; ?>"><?php echo $com->nomeCompleto(); ?></option>
             <?php } ?>
         </select>
+        <p>Inserisci l'importo pagato da <?= $u->nomeCompleto(); ?> per l'iscrizione in euro
+            <input class="input-mini" id='quota' name='quota' type='number' step='0.01' min='0'>
+        </p>
         <p class="muted">Attenzione! Ciò che scegli non sarà facilmente modificabile in seguito.</p>
         </div>
     </div>

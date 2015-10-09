@@ -694,6 +694,9 @@ class APIServer {
         $me = $this->richiediLogin();
         $part = PartecipazioneBase::id($this->par['id']);
         $corsoBase = $part->corsoBase();
+        $quota = (float) $this->par['quota'];
+        $quota = round($quota, 2);
+
         if (!$corsoBase->modificabileDa($me)) {
             return [
                 'ok' => false
@@ -702,7 +705,7 @@ class APIServer {
         if ( $part->stato == ISCR_RICHIESTA ) {
             
             if ( $this->par['iscr'] ) {
-                $part->concedi($this->par['com'], $me);
+                $part->concedi($this->par['com'], $me, $quota);
 
                 $cal = new ICalendar();
                 $cal->generaCorsoBase($corsoBase);
