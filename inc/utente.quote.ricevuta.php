@@ -31,6 +31,9 @@ if (!$t = Tesseramento::by('anno', $quota->anno)) {
 }
 
 $quotaMin = $attivo ? $t->attivo : $t->ordinario;
+if ($quota->appartenenza()->stato == MEMBRO_CORSO_BASE) {
+  $quotaMin = $quota->quota;
+}
 
 
 $p = new PDF('ricevutaquota', 'ricevuta.pdf');
@@ -48,7 +51,7 @@ if (($quota->quota - $quotaMin) > 0) {
 	$p->_OFFERTA    = '';
     $p->_OFFERIMPORTO = '';
 }
-$p->_TOTALE 	= $quota->quota;
+$p->_TOTALE 	= soldi($quota->quota);
 $p->_LUOGO 		= $quota->comitato()->locale()->comune;
 $p->_DATA 		= date('d/m/Y', $quota->tConferma);
 $p->_CHINOME	= $quota->conferma()->nomeCompleto();

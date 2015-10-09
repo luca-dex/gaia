@@ -5,7 +5,7 @@ $(document).ready( function() {
            var a2 = $(e).data('accetta');
            var motivo = '';
            var com = '';
-           var quota = '';
+           var quota = '0';
            if ( a2 == 0 ) {
               motivo = prompt("Motiva la negazione dell'iscrizione la corso");
               if ( motivo.length < 3 ) {

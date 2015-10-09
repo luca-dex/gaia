@@ -330,6 +330,10 @@ class Utente extends Persona {
             && $this->ultimaAppartenenza(MEMBRO_VOLONTARIO)->attuale()) {
             return $this->ultimaAppartenenza(MEMBRO_VOLONTARIO);
         } elseif (($this->stato == PERSONA || $this->stato == ASPIRANTE)
+            && $this->ultimaAppartenenza(MEMBRO_CORSO_BASE)
+            && $this->ultimaAppartenenza(MEMBRO_CORSO_BASE)->attuale()) {
+            return $this->ultimaAppartenenza(MEMBRO_CORSO_BASE);
+        } elseif (($this->stato == PERSONA || $this->stato == ASPIRANTE)
             && $this->ultimaAppartenenza(MEMBRO_ORDINARIO)
             && $this->ultimaAppartenenza(MEMBRO_ORDINARIO)->attuale()) {
             return $this->ultimaAppartenenza(MEMBRO_ORDINARIO);

@@ -37,6 +37,10 @@ if (!$t = Tesseramento::by('anno', $quota->anno)) {
 }
 
 $quotaMin = $attivo ? $t->attivo : $t->ordinario;
+if ($quota->appartenenza()->stato == MEMBRO_CORSO_BASE) {
+  $quotaMin = $quota->quota;
+}
+
 
 
 

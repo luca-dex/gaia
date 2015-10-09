@@ -138,15 +138,14 @@ $(document).ready( function() {
         <?php if (isset($_GET['cancellatoAdmin'])) { ?>
             <div class="alert alert-block alert-success">
                 <h4><i class="icon-ok"></i> <strong>Iscrizione cancellata</strong>.</h4>
-                <p>Ricorda che la persona rimane comunque un socio ordinario del Comitato.</p>
+                <p>Ricorda che la persona rimane comunque tra gli iscritti ai corsi del Comitato.</p>
             </div> 
         <?php } ?>
         <?php if (isset($_GET['ammesso'])) { ?>
             <div class="alert alert-block alert-success">
                 <h4><i class="icon-ok"></i> <strong>Operazione andata a buon fine</strong>.</h4>
-                <p>Hai ammesso un aspirante Volontario al Corso, ricorda che ora è un Socio
-                Ordinario della Croce Rossa Italiana ed è necessario registrare il pagamento
-                della quota.</p>
+                <p>Hai ammesso un aspirante Volontario al Corso, ricorda che ora è negli elenchi
+                degli iscritti al corso del tuo Comitato.</p>
             </div> 
         <?php } ?>
         <?php if (isset($_GET['verbok'])) { ?>
@@ -267,7 +266,7 @@ $(document).ready( function() {
         <div class="row-fluid">
             <div class="span12">
                 <div class="alert alert-info">
-                    Per partecipare effettivamente ad un Corso per Volontari della Croce Rossa devi diventare un <strong>Socio Ordinario</strong>.
+                    Per partecipare effettivamente ad un Corso per Volontari della Croce Rossa devi <strong>iscriverti</strong>.
                     Durante la presentazione del corso ti verranno fornite tutte le informazioni utili al riguardo. Per renderti
                     più facili le cose puoi trovare qui di seguito alcuni documenti molto importati. Ti verrà richiesto
                     di <strong>leggere e sottoscrivere</strong> questi documenti quando compilerai il modulo di iscrizione:
@@ -478,7 +477,7 @@ $(document).ready( function() {
                     <strong><i class="icon-warning-sign"></i> Non puoi ancora accettare le preiscrizioni.</strong>
                     Solo dopo la data di inizio del corso ti sarà possibile accettare le preiscrizioni al corso.
                     Questa scelta è dovuta al fatto che <strong>accettare una periscrizione</strong> significa iscrivere l'aspirante
-                    Volontario nel ruolo di <strong>Socio Ordinario del Comitato</strong>. Questo lo potrai fare solamente quando
+                    Volontario nell'elenco delle persone iscritte al Corso Base. Questo lo potrai fare solamente quando
                     la persona si sarà presentata al corso e ti avrà fornito la modulistica che serve. Puoi in
                     ogni caso iniziare a prendere contatti con l'aspirante Volontario.
                     </div>
