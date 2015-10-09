@@ -593,11 +593,7 @@ $do = DonazionePersonale::filtra([['volontario', $u]]);
         <th>Azioni</th>
       </thead>
       <?php 
-        if($u->stato == VOLONTARIO) {
-          $appartenenze = $u->appartenenzeAttuali();
-        } else {
-          $appartenenze = $u->appartenenzeAttuali(MEMBRO_ORDINARIO);
-        }
+      $appartenenze = $u->appartenenzeAttuali(MEMBRO_CORSO_BASE);
 
       foreach ( $appartenenze as $app ) { ?>
         <tr class="success">
