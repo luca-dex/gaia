@@ -201,6 +201,10 @@ if(!$me->admin()) {
                                             <i class="icon-plus"></i>
                                             Aggiungi Sostenitore CRI
                                         </a>
+                                        <a href="?p=us.iscritto.nuovo" class="btn btn-block btn-success">
+                                            <i class="icon-plus"></i>
+                                            Aggiungi Iscritto per Corso Base
+                                        </a>
                                     </div>
                                 </div>
                             </div>

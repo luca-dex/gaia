@@ -8,11 +8,11 @@ paginaApp([APP_SOCI , APP_PRESIDENTE]);
 caricaSelettoreComitato();
 $t = Tesseramento::by('anno', date('Y'));
 ?>
-<form action="?p=us.ordinario.nuovo.ok" method="POST">
+<form action="?p=us.iscritto.nuovo.ok" method="POST">
     <div class="modal fade automodal">
 
         <div class="modal-header">
-            <h3><i class="icon-plus"></i> Inserisci un nuovo Sostenitore CRI</h3>
+            <h3><i class="icon-plus"></i> Inserisci un nuovo Iscritto per Corso Base</h3>
         </div>
 
         <div class="modal-body">
@@ -39,20 +39,22 @@ $t = Tesseramento::by('anno', date('Y'));
                 </div>
                 <?php }elseif ( isset($_GET['gia']) ) { ?>
                 <div class="alert alert-danger">
-                    <i class="icon-ban-circle"></i> <strong>Sostenitore già presente</strong>.
-                    Il Sostenitore che stai provando ad aggiungere è già presente.
+                    <i class="icon-ban-circle"></i> <strong>Aspirante già presente</strong>.
+                    L'Aspirante che stai provando ad aggiungere è già presente.
+                    Chiedi all'Aspirante di accedere a Gaia e fare la preiscrizione al Corso Base.
                 </div>
                 <?php }elseif ( isset($_GET['mail']) ) { ?>
                 <div class="alert alert-danger">
                     <i class="icon-ban-circle"></i> <strong>Mail già presente</strong>.
                     La mail che stai provando ad aggiungere è già presente nel sistema.
+                    Chiedi all'Aspirante di accedere a Gaia e fare la preiscrizione al Corso Base.
                 </div>
                 <?php }?>
                 <div class="alert alert-info">
                     <i class="icon-pencil"></i> <strong>Alcuni campi sono obbligatori</strong>.
                     <p>I campi contrassegnati dall'asterisco (*) sono obbligatori. Potrai compilare
-                    gli altri campi anche in un secondo momento dalla scheda anagrafica del Sostenitore.</p>
-                    <p>Se non inserisci l'indirizzo email del Sostenitore <strong>non</strong> sarà attivato
+                    gli altri campi anche in un secondo momento dalla scheda anagrafica dell'Iscritto.</p>
+                    <p>Se non inserisci l'indirizzo email dell'Iscritto <strong>non</strong> sarà attivato
                     il suo account su Gaia.</p>
                 </div>
             </div>
@@ -183,6 +185,7 @@ $t = Tesseramento::by('anno', date('Y'));
                     <a class="btn btn-inverse" data-selettore-comitato="true" data-input="inputComitato">
                         Seleziona un Comitato... <i class="icon-pencil"></i>
                     </a>
+                    <small>Seleziona il Comitato presso il quale l'aspirante diventer&agrave; Volontario al superamento dell'esame.</small>
 
                 </div>
             </div>         
@@ -191,7 +194,7 @@ $t = Tesseramento::by('anno', date('Y'));
         <div class="modal-footer">
             <a href="?p=us.dash" class="btn">Annulla</a>
             <button type="submit" class="btn btn-success">
-                <i class="icon-plus"></i> Aggiungi Sostenitore
+                <i class="icon-plus"></i> Aggiungi Iscritto al Corso Base
             </button>
         </div>
     </div>
