@@ -76,6 +76,7 @@ define('MEMBRO_ORDINARIO_PROMOSSO', 4);
 define('MEMBRO_EST_TERMINATA',      5);
 define('MEMBRO_TRASF_ANN',          9);
 define('MEMBRO_TRASF_NEGATO',      10);
+define('MEMBRO_CORSO_BASE',        12);
 define('MEMBRO_EST_ANN',           14);
 define('MEMBRO_EST_NEGATA',        15);
 define('MEMBRO_ORDINARIO',         16);
